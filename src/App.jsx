@@ -296,7 +296,7 @@ const sharedStore = {
 
 /* Bei jeder inhaltlichen Änderung hochzählen — macht sichtbar, ob eine neue
    Version wirklich angekommen ist. Format: v<Haupt>.<Neben> */
-const APP_VERSION = "v1.2";
+const APP_VERSION = "v1.3";
 
 const KUECHEN = [...new Set(DISHES.map((d) => d.kueche))].sort();
 
@@ -309,7 +309,7 @@ export default function Abendbrett() {
   const [selected, setSelected] = useState([]);
   const [openIng, setOpenIng] = useState(null);
   const [seed, setSeed] = useState(7);
-  const [checkOpen, setCheckOpen] = useState(true);
+  const [checkOpen, setCheckOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [custom, setCustom] = useState([]);   // selbst angelegte Gerichte
   const [hidden, setHidden] = useState([]);   // gelöschte Gerichte
