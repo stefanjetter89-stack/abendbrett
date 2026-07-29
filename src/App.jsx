@@ -294,6 +294,10 @@ const sharedStore = {
   },
 };
 
+/* Bei jeder inhaltlichen Änderung hochzählen — macht sichtbar, ob eine neue
+   Version wirklich angekommen ist. Format: v<Haupt>.<Neben> */
+const APP_VERSION = "v1.2";
+
 const KUECHEN = [...new Set(DISHES.map((d) => d.kueche))].sort();
 
 export default function Abendbrett() {
@@ -456,7 +460,7 @@ export default function Abendbrett() {
             <p className="ab-sub">Was gibt&rsquo;s heute Abend? Vier Regler, fünf Vorschläge, fertig.</p>
           </div>
           <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-            <span className="ab-readout">{heute}</span>
+            <span className="ab-readout">{heute} · {APP_VERSION}</span>
             <button className="ab-mini ghost" style={{ color: "#E6E7DD", borderColor: "#27473F" }}
               onClick={() => setCheckOpen(true)}>Abend-Check</button>
           </div>
@@ -729,6 +733,7 @@ export default function Abendbrett() {
           <b>Die Routine:</b> Vier Regler stellen (Zeit / Küche / Kochen oder Bestellen /
           Anpassen) → Kacheln durchgehen, „Heute nicht" wegwischen → eine Kachel nehmen →
           Liste kopieren. Zwei bis drei Gerichte auf einmal auswählen ergibt den Wocheneinkauf.
+          <br />Abendbrett {APP_VERSION}
         </footer>
         )}
       </div>
