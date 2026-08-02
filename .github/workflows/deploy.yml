@@ -21,8 +21,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm install
+          node-version: 22
+      # npm ci verlangt eine committete package-lock.json. Wer Dateien von Hand
+      # über die GitHub-Oberflaeche hochlaedt, vergisst sie leicht — deshalb der
+      # Rueckfall, statt dass das Deployment daran scheitert.
+      - run: npm ci || npm install
+      - run: npm run lint
+      - run: npm test
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
